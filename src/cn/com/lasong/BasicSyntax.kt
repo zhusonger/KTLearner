@@ -100,7 +100,6 @@ fun nullCheck() {
 
 // 当一个引用可能为 null 值时, 对应的类型声明必须明确地标记为可为 null。
 //当 str 中的字符串内容不是一个整数时, 返回 null:
-
 fun parseInt(string: String): Int? {
     return string.toIntOrNull()
 }
@@ -113,7 +112,52 @@ fun nullReturn() {
     // 直接使用 `x * y` 会导致错误, 因为它们可能为 null.
     if (x != null && y != null) {
         // 在进行过 null 值检查之后, x 和 y 的类型会被自动转换为非 null 变量
-        print(x * y)
+        println(x * y)
+    }
+}
+
+// 6. 类型检测及自动类型转换
+// is 运算符检测一个表达式是否某类型的一个实例
+// 类似于Java中的instanceof关键字
+fun isString(obj: Any): Boolean {
+    if (obj is String) {
+        // 自动转换
+        println("string length is ${obj.length}")
+        return true
+    }
+
+    if (obj is Int && obj !is Long) {
+        println("$obj is Int")
+    }
+    return false
+}
+
+// 7. 区间
+// 辅以 in 和 !in 形成
+fun range() {
+    // 区间表达式由具有操作符形式 .. 的 rangeTo 函数
+    // 输出1~4
+    println("1~4")
+    for (i in 1..4) print(i)
+
+    // 向下使用downTo
+    // 输出4~1
+    println("\n4~1")
+    for (i in 4 downTo 1) print(i)
+
+    // 使用 step 指定步长
+    // 输出13
+    println()
+    for (i in 1..4 step 2) print(i)
+
+    // 输出42
+    println()
+    for (i in 4 downTo 1 step 2) print(i)
+
+    // 使用 until 函数排除结束元素
+    println("\n1~9")
+    for (i in 1 until 10) {   // i in [1, 10) 排除了 10
+        print(i)
     }
 }
 
@@ -128,4 +172,8 @@ fun main() {
     string()
     nullCheck()
     nullReturn()
+    isString(1)
+    isString(2L)
+    isString("1")
+    range()
 }
