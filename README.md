@@ -11,5 +11,15 @@
 * 定义常量与变量
 * 字符串模板
 * NULL检查机制
-* 
+* 类型检测及自动类型转换
+* 区间
+
+## BasicTypes.kt
+
+[基本数据类型](https://www.runoob.com/kotlin/kotlin-basic-types.html)
+
+* 字面常量
+* 比较两个数字
+* 类型转换
+* 位操作符
 

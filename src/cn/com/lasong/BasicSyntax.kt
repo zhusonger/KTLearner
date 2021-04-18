@@ -159,6 +159,11 @@ fun range() {
     for (i in 1 until 10) {   // i in [1, 10) 排除了 10
         print(i)
     }
+
+    // !in 不在范围
+    println("0 is in 1~9?")
+    if (0 !in 1..9)
+        println("0 !in 1~9")
 }
 
 fun main() {
