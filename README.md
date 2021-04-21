@@ -62,6 +62,24 @@
 
 [继承](https://www.runoob.com/kotlin/kotlin-extend.html)
 
+* 构造函数
+* 重写
+* 属性重写
+
+## Interface.kt
+
+[接口](https://www.runoob.com/kotlin/kotlin-interface.html)
+
+* 实现接口 & 接口中的属性
+* 函数重写
+
+## Extensions.kt
+
+[扩展](https://www.runoob.com/kotlin/kotlin-extensions.html)
+
+* 扩展函数
+* 扩展函数是静态解析的
+* 伴生对象的扩展
 
 # Kotlin进阶
 <https://www.kotlincn.net/docs/reference/basic-types.html>
