@@ -1,6 +1,6 @@
 package cn.com.lasong
 
-class ControlFlow {
+private class ControlFlow {
     // 1. IF 表达式
     fun ifExp() {
         // 普通的if else

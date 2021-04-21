@@ -1,6 +1,6 @@
 package cn.com.lasong
 
-class BasicTypes {
+private class BasicTypes {
     // 1. 字面常量
 // Byte、Short、Int、Long、Float、Double 数值类型, 就是数字
 // Char在Java中是数值类型, 但在kotlin中是数据类型, 必须要用''表示

@@ -1,6 +1,6 @@
 package cn.com.lasong
 
-class LoopControl {
+private class LoopControl {
 
     // 1. For 循环
     fun forLoop() {

@@ -1,6 +1,6 @@
 package cn.com.lasong
 
-class BasicSyntax {
+private class BasicSyntax {
     // 1. 函数定义
     // 有返回类型
     fun sum(a: Int, b: Int): Int {
