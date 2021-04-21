@@ -28,9 +28,19 @@
 * 字符串
 * 字符串模板
 
-## ControlFlow.kt
+## ConditionControl.kt
 
 [条件控制](https://www.runoob.com/kotlin/kotlin-condition-control.html)
 
 * IF 表达式
+* When 表达式
+
+## LoopControl.kt
+
+[循环控制](https://www.runoob.com/kotlin/kotlin-loop-control.html)
+
+* For 循环
+* while 与 do...while 循环
+* 返回和跳转
+* Break 和 Continue 标签
 
