@@ -57,3 +57,11 @@
 * 内部类
 * 匿名内部类
 * 类的修饰符
+
+## Extend.kt
+
+[继承](https://www.runoob.com/kotlin/kotlin-extend.html)
+
+
+# Kotlin进阶
+<https://www.kotlincn.net/docs/reference/basic-types.html>
