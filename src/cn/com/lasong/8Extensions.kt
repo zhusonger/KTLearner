@@ -70,6 +70,66 @@ fun CompanionClass.Companion.message(string: String) {
 val CompanionClass.Companion.type: String
     get() = "Companion"
 
+// 4. 扩展的作用域
+// 通常扩展函数定义下顶级包下
+// 如果需要用其他包下的扩展, 需要import导入
+// 可以理解成静态函数定义, 其他包下需要使用就需要导入静态方法
+/**
+ * @{link pkg1/8_1Extensions}
+ */
+
+// 5. 扩展声明为成员
+// 在一个类内部你可以为另一个类声明扩展
+// 其中扩展方法定义所在类(ExtensionsMember)的实例称为分发接受者，
+// 而扩展方法的目标类型(Extensions)的实例称为扩展接受者
+open class ExtensionsMember {
+    fun memberNative() {
+        println("memberNative")
+    }
+
+    fun extension() {
+        println("ExtensionsMember extension")
+    }
+    // 5.1 可以调用分发接受者的方法
+    // 字节码显示是作为一个参数为Extensions的方法加入到ExtensionsMember中
+    fun Extensions.member() {
+        memberNative()
+        // 5.2 相同方法名, 扩展的方法优先, 如果要使用当前类的方法, 使用this@
+        extension()
+        this@ExtensionsMember.extension()
+        println("ExtensionsMember member method, message = $name")
+    }
+
+    // 5.3 可重写的扩展方法
+    // 扩展方法还是根据扩展接受者的静态解析类型, 这里就是Extensions
+    // 分发接受者, 就是调用callExtensions方法的实例是虚拟解析
+    // 所以在子类重写扩展后, 会调用子类实例(ExtensionsMember2)的扩展方法
+    open fun ExtensionsChild.extension() {
+        println("ExtensionsChild extension in ExtensionsMember, name = $name")
+    }
+
+    open fun Extensions.extension() {
+        println("Extensions extension in ExtensionsMember, name = $name")
+    }
+
+    fun callMember(extensions: Extensions) {
+        extensions.member()
+    }
+    fun callExtensions(extensions: Extensions) {
+        extensions.extension()
+    }
+}
+
+class ExtensionsMember2 : ExtensionsMember() {
+    override fun Extensions.extension() {
+        println("Extensions extension in ExtensionsMember2, name = $name")
+    }
+
+    override fun ExtensionsChild.extension() {
+        println("ExtensionsChild extension in ExtensionsMember2, name = $name")
+    }
+}
+
 fun main() {
     doExtension(Extensions("Hello")) // receiverType是extensions
     doExtension(ExtensionsChild()) // receiverType是extensions
@@ -88,4 +148,12 @@ fun main() {
     val companionClass = CompanionClass.newInstance()
 
     CompanionClass.message(CompanionClass.type)
+
+    ExtensionsMember().callMember(Extensions("Hello"))
+
+
+    ExtensionsMember().callExtensions(Extensions("Hello"))
+    ExtensionsMember().callExtensions(ExtensionsChild())
+    ExtensionsMember2().callExtensions(Extensions("Hello"))
+    ExtensionsMember2().callExtensions(ExtensionsChild())
 }

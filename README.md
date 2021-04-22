@@ -80,6 +80,8 @@
 * 扩展函数
 * 扩展函数是静态解析的
 * 伴生对象的扩展
+* 扩展的作用域
+* 扩展声明为成员
 
 # Kotlin进阶
 <https://www.kotlincn.net/docs/reference/basic-types.html>
