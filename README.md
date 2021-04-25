@@ -83,5 +83,28 @@
 * 扩展的作用域
 * 扩展声明为成员
 
+## DataSealedClasses.kt
+
+[数据类与密封类](https://www.runoob.com/kotlin/kotlin-data-sealed-classes.html)
+
+* 数据类
+* 密封类
+
+## Generics.kt
+
+[泛型](https://www.runoob.com/kotlin/kotlin-generics.html)
+
+* 泛型
+* 泛型约束
+* [型变]((https://zh.wikipedia.org/wiki/%E5%8D%8F%E5%8F%98%E4%B8%8E%E9%80%86%E5%8F%98))
+    * 声明型变 (声明处型变)
+    * 投影型变 (使用处型变)
+* 星投影
+
+[官方中文泛型](https://www.kotlincn.net/docs/reference/generics.html)
+
+* 泛型函数
+* 类型擦除
+
 # Kotlin进阶
 <https://www.kotlincn.net/docs/reference/basic-types.html>
