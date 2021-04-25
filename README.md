@@ -1,6 +1,8 @@
 # Kotlin入门
 <https://www.runoob.com/kotlin/kotlin-tutorial.html>
 
+内容较少, 方便入门
+
 ## BasicSyntax.kt
 
 [基础语法](https://www.runoob.com/kotlin/kotlin-basic-syntax.html)
@@ -106,5 +108,19 @@
 * 泛型函数
 * 类型擦除
 
+## EnumClasses.kt
+
+[枚举类](https://www.runoob.com/kotlin/kotlin-enum-classes.html)
+
+* 枚举
+* 使用枚举常量
+
+## ObjectDeclarations.kt
+
+[对象表达式和对象声明](https://www.runoob.com/kotlin/kotlin-object-declarations.html)
+
 # Kotlin进阶
+
 <https://www.kotlincn.net/docs/reference/basic-types.html>
+
+内容详细, 适合了解更多详细用法
