@@ -119,6 +119,12 @@
 
 [对象表达式和对象声明](https://www.runoob.com/kotlin/kotlin-object-declarations.html)
 
+* 对象表达式
+* 对象声明
+* 伴生对象
+* 对象表达式和对象声明之间的语义差异
+
+
 # Kotlin进阶
 
 <https://www.kotlincn.net/docs/reference/basic-types.html>
