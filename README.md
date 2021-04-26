@@ -124,6 +124,18 @@
 * 伴生对象
 * 对象表达式和对象声明之间的语义差异
 
+## Delegated.kt
+
+[委托](https://www.runoob.com/kotlin/kotlin-delegated.html)
+
+* 类委托
+* 属性委托 && 属性委托要求
+* 标准委托
+* 可观察属性 Observable
+* 把属性储存在映射中
+* Not Null
+* 局部委托属性
+
 
 # Kotlin进阶
 
