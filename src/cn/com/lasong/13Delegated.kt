@@ -1,8 +1,8 @@
 package cn.com.lasong
 
 import kotlin.properties.Delegates
+import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
-import kotlin.time.milliseconds
 
 // 委托 : 把一个任务交给另一个对象来处理, 使用by关键字
 // 1. 类委托
@@ -41,16 +41,16 @@ class Property {
 // 可读取时, 需要有getValue方法
 // operator fun getValue(ref: <委托属性所在的类或者它的超类>, property: KProperty<*>)
 //                                                       : <属性类型或者它的超类>
-class PropertyDelegate {
+class PropertyDelegate : ReadWriteProperty<Any?, Int>{
     var value: Int = 0
-    operator fun getValue(ref: Any, property: KProperty<*>): Int {
-        println("getValue from $ref and name is ${property.name}")
+    override operator fun getValue(thisRef: Any?, property: KProperty<*>): Int {
+        println("getValue from $thisRef and name is ${property.name}")
         return value
     }
 
-    operator fun setValue(ref: Property, property: KProperty<*>, int: Int) {
-        println("setValue from $ref and name is ${property.name} and value is $int")
-        value = int
+    override operator fun setValue(thisRef: Any?, property: KProperty<*>, value: Int) {
+        println("setValue from $thisRef and name is ${property.name} and value is $value")
+        this.value = value
     }
 }
 
@@ -97,6 +97,9 @@ class ObservableDelegate {
             // 不一样才更新
             oldValue != newValue
     })
+
+    // 9.1 会进行报错, 因为PropertyChecker检测是否是在Property2中创建的对象
+    val checkerValue by PropertyChecker()
 }
 
 // 5. 把属性储存在映射中
@@ -129,7 +132,41 @@ fun partDelegate(ready: Boolean, currentSystemMs: ()->Long) {
 }
 
 // 8. 翻译规则
-//
+// 委托的实际是编译器辅助生成一个变量 <属性名>$delegate,
+// 然后把被代理对象的get/set的改为调用生成的委托对象
+class Property2 {
+
+    // 自定义属性赋值
+//    var customValue: Int by PropertyDelegate()
+    // 翻译之后的实现等同于上面的by关键字
+    private val `customValue$delegate` = PropertyDelegate()
+    var customValue: Int
+        get() = `customValue$delegate`.getValue(this, this::customValue)
+        set(value) = `customValue$delegate`.setValue(this, this::customValue, value)
+
+    val checkerValue by PropertyChecker()
+}
+
+// 9. 提供委托provideDelegate
+// 如果by关键字提供的对象有成员方法 operator fun provideDelegate(ref: Any?, property: KProperty<*>)
+// 就会使用provideDelegate来创建属性委托实例
+// 作用就是在定义时就检测属性, 比如我这个就要求只能在Property2中定义
+// 这样可以属性定义按照某些规则定义
+// 编译器转换之后, 跟属性委托唯一不同的是委托实例的生成不同
+// 原来是 private val `customValue$delegate` = PropertyDelegate()
+// provideDelegate变成如下
+// private val `customValue$delegate` = PropertyChecker().provideDelegate(this, this::customValue)
+// 其他的并没有改变, 可以看到这样就是在加载类时就会执行provideDelegate方法来进行检查委托属性的定义
+class PropertyChecker {
+    operator fun provideDelegate(ref: Any?, property: KProperty<*>): ReadWriteProperty<Any?, Int> {
+        if (ref !is Property2) {
+            throw IllegalAccessException("Not Property2")
+        }
+
+        return PropertyDelegate()
+    }
+}
+
 fun main() {
     Boss(WorkerImpl()).doDaily()
     val p = Property()
