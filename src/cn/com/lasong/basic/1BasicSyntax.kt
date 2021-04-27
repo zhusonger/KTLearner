@@ -1,4 +1,4 @@
-package cn.com.lasong
+package cn.com.lasong.basic
 
 private class BasicSyntax {
     // 1. 函数定义

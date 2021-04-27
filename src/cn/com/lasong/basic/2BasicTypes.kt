@@ -1,4 +1,4 @@
-package cn.com.lasong
+package cn.com.lasong.basic
 
 private class BasicTypes {
     // 1. 字面常量

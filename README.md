@@ -140,6 +140,10 @@
 
 # Kotlin进阶
 
-<https://www.kotlincn.net/docs/reference/basic-types.html>
+<https://www.kotlincn.net/docs/reference/>
 
-内容详细, 适合了解更多详细用法
+官方出品, 内容详细, 适合了解更多详细用法, 在基础之上再添加补充未说明的内容
+
+## 
+
+

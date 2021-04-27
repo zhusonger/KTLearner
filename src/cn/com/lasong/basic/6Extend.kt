@@ -1,4 +1,4 @@
-package cn.com.lasong
+package cn.com.lasong.basic
 
 // 从Any隐式继承
 // equals/hashCode/toString 继承Any的方法
@@ -48,7 +48,7 @@ interface UFO {
     }
 }
 
-class Bird : Flyer(), UFO{
+class Bird : Flyer(), UFO {
     override fun fly() {
         super<UFO>.fly()
         super<Flyer>.fly()

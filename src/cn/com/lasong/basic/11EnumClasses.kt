@@ -1,4 +1,4 @@
-package cn.com.lasong
+package cn.com.lasong.basic
 // 1.枚举
 // 枚举类最基本的用法是实现一个类型安全的枚举
 // 最简单的枚举, 值从0开始。

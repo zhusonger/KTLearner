@@ -1,4 +1,4 @@
-package cn.com.lasong
+package cn.com.lasong.basic
 
 // 1. 数据类
 // 使用关键字 data

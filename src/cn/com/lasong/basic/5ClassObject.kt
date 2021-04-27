@@ -1,4 +1,4 @@
-package cn.com.lasong
+package cn.com.lasong.basic
 
 
 
@@ -130,7 +130,7 @@ class AnonymousClass {
         fun test()
     }
 
-    fun doAnonymous(run: AnonymousInterface ) {
+    fun doAnonymous(run: AnonymousInterface) {
         run.test()
     }
 }

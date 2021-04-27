@@ -1,4 +1,4 @@
-package cn.com.lasong
+package cn.com.lasong.basic
 
 // 1. 实现接口 & 接口中的属性
 // 与java8语法相似, 接口支持实现方法

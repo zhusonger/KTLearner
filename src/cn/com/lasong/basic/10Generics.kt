@@ -1,4 +1,4 @@
-package cn.com.lasong
+package cn.com.lasong.basic
 
 // 1. 泛型
 // 跟java一样, kotlin也支持泛型
@@ -101,17 +101,17 @@ class GirlMother : Mother<Girl> {
 interface Father<in F> {
     fun givePocket(p : F);
 }
-class AnyFather : Father<People>{
+class AnyFather : Father<People> {
     override fun givePocket(p: People) {
         println("givePocket Any : ${p.name}")
     }
 }
-class SonFather : Father<Son>{
+class SonFather : Father<Son> {
     override fun givePocket(p: Son) {
         println("givePocket Son : ${p.name}")
     }
 }
-class GirlFather : Father<Girl>{
+class GirlFather : Father<Girl> {
     override fun givePocket(p: Girl) {
         println("givePocket Girl : ${p.name}")
     }
@@ -170,13 +170,13 @@ fun transform(from: UseGenericsInterface<out Any>, to: UseGenericsInterface<in S
 interface Function<in I, out O> {
     fun action(input: I) : O
 }
-fun doFunction1(function: Function<*, *> ) {
+fun doFunction1(function: Function<*, *>) {
     // I : Nothing, O : Any?
 //    function.action()
 //    println("doFunction1 = ${function.action(1)}") // compile error, 无法输入任何内容, I为Nothing
 }
 
-fun doFunction2(function: Function<String, *> ) {
+fun doFunction2(function: Function<String, *>) {
     // I : String, O : Any?
     println("doFunction2 = ${function.action("s1")}")
 }

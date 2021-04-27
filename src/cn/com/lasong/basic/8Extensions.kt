@@ -1,4 +1,4 @@
-package cn.com.lasong
+package cn.com.lasong.basic
 
 // Kotlin 可以对一个类的属性和方法进行扩展
 // 且不需要继承或使用 Decorator 模式。

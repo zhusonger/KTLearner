@@ -1,4 +1,4 @@
-package cn.com.lasong
+package cn.com.lasong.basic
 
 // 对象表达式和对象声明
 // 用对象表达式和对象声明来实现创建一个对某个类做了轻微改动的类的对象，且不需要去声明一个新的子类。
@@ -25,7 +25,7 @@ class ObjectDeclarations {
     var v1 = 1
     var v2 = "s1"
 
-    private fun doPrivateObject() = object : ObjectDeclarationInterface{
+    private fun doPrivateObject() = object : ObjectDeclarationInterface {
         val x: String = "PRIVATE"
         override var value: Int = 0
 

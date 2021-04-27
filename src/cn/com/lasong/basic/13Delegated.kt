@@ -1,4 +1,4 @@
-package cn.com.lasong
+package cn.com.lasong.basic
 
 import kotlin.properties.Delegates
 import kotlin.properties.ReadWriteProperty
