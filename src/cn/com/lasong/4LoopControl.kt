@@ -94,7 +94,9 @@ private class LoopControl {
         stringArray.forEach {
             if (it == "s2") {
                 println("Get $it")
-                // return直接返回整个函数(label), 不会执行label函数后续的代码
+                // return直接返回整个函数(label), 不会执行label函数后续的代，码,
+                // 这是因为forEach定义时添加inline修饰符,
+                // 简单理解就是forEach传入的lambda表达式内部的代码, 被抽出来放到了forEach循环内执行了
 //                return
                 // return@标签, 局部返回forEach, 本次内联函数后续代码不执行, 效果相当于continue
                 return@forEach
